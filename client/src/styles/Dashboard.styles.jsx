@@ -34,3 +34,4 @@ export const LyricsContainer = styled.div`
   white-space: pre;
 `;
 
+

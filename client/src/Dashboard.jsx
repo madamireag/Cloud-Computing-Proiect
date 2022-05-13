@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import useAuth from './hooks/useAuth';
-
+import Player from './Player';
 import TrackSearchResult from './TrackSearchResult';
 import SpotifyWebApi from 'spotify-web-api-node';
 import axios from 'axios';
@@ -10,6 +10,7 @@ import {
   SearchInput,
   ResultsContainer,
   LyricsContainer,
+  PlayerContainer,
 } from './styles/Dashboard.styles';
 
 const spotifyApi = new SpotifyWebApi({
@@ -93,11 +94,11 @@ const Dashboard = ({ code }) => {
           />
         ))}
         {searchResults.length === 0 && (
-                <LyricsContainer>
-                      {lyrics}</LyricsContainer>
+          <LyricsContainer>{lyrics}</LyricsContainer>
         )}
       </ResultsContainer>
-     </DashBoardContainer>
+     
+    </DashBoardContainer>
   );
 };
 
