@@ -17,7 +17,8 @@ Fiind un API al carui scop este aducerea de versuri pentru o anumita melodie si 
         data: { lyrics },
       } = await axios.get("https://api.lyrics.ovh/v1/" + playingTrack.artist + "/" + playingTrack.title);
       setLyrics(lyrics);
-    })();```
+    })();
+    ```
 ## Flux de date
 
 ## Capturi ecran aplicație
