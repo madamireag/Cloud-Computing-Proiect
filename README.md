@@ -1,5 +1,4 @@
 # Documentație Aplicație
-
 ## Introducere
 
 ## Descriere problemă
@@ -19,8 +18,14 @@ Fiind un API al carui scop este aducerea de versuri pentru o anumita melodie si 
       setLyrics(lyrics);
     })();
  ```
+ #### Spotify API
+ Am utilizat Spotify API pentru a cauta melodii pe baza artistului si/sau titlului.
+ 
 ## Flux de date
 
 ## Capturi ecran aplicație
 
 ## Referințe
+* [Lyrics.ovh API](https://github.com/public-apis/public-apis)
+* [Lyrics.ovh API Website](https://lyricsovh.docs.apiary.io/#)
+* [Spotify API](https://developer.spotify.com/documentation/web-api/)
