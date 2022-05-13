@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
@@ -16,5 +17,8 @@
     "express": "^4.17.1",
     "lyrics-finder": "^21.7.0",
     "spotify-web-api-node": "^5.0.2"
+  },
+  "engines": {
+    "node": "16.5.0"
   }
 }
