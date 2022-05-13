@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import useAuth from './hooks/useAuth';
-import Player from './Player';
+
 import TrackSearchResult from './TrackSearchResult';
 import SpotifyWebApi from 'spotify-web-api-node';
 import axios from 'axios';
@@ -10,7 +10,6 @@ import {
   SearchInput,
   ResultsContainer,
   LyricsContainer,
-  PlayerContainer,
 } from './styles/Dashboard.styles';
 
 const spotifyApi = new SpotifyWebApi({
