@@ -91,6 +91,31 @@ spotifyLoginRouter.post('/', async (req, res) => {
     }
   });
   ```
+  Pe partea de frontend vom utiliza biblioteca axios pentru a trimite request-ul de tip POST, realizandu-se astfel legatura intre backend si frontend. Vom astepta raspunsul primit si vom folosi token-ul nou primit in request pentru a seta un nou acces token si timpul nou de expirare al acestuia.
+  
+  ```
+  useEffect(() => {
+    if (!refreshToken || !expiresIn) return;
+    const interval = setInterval(async () => {
+      try {
+        const {
+          data: { access_token, expires_in },
+        } = await axios.post(`${process.env.REACT_APP_BASE_URL}/refresh`, {
+          refreshToken,
+        });
+        setAccessToken(access_token);
+        setExpiresIn(expires_in);
+      } catch {
+        window.location = '/';
+      }
+    }, (expiresIn - 60) * 1000);
+
+    return () => clearInterval(interval);
+  }, [refreshToken, expiresIn]);
+
+  return accessToken;
+};
+  ```
 ## Capturi ecran aplicație
 Aplicatia contine 3 pagini: pagina de start, pagina de cautare a unei melodii si pagina de afisare a versurilor melodiei selectate. Aceasta porneste cu pagina de start, unde avem optiunea de a ne conecta la Spotify.
 ![Pagina start](pagina_start.png)
