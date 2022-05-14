@@ -21,7 +21,7 @@ Fiind un API al carui scop este aducerea de versuri pentru o anumita melodie si 
  #### Spotify API
 Am utilizat Spotify API pentru a cauta melodii pe baza artistului si/sau titlului. Acesta ofera acces la datele utilizatorului, dar si la datele disponibile legate de melodiile si artistii aflati pe Spotify. Pentru a ne putea conecta aplicatia la API este nevoie sa ne inregistram pe https://developer.spotify.com/dashboard/login si sa cream o aplicatie pentru a primi un client_id si un client_secret ce vor fi folosite ulterior pentru a ne conecta la API. Tot aici este necesar sa furnizam aplicatiei un redirect_uri pentru ca API-ul sa stie unde sa ne redirecteze dupa ce realizeaza autorizarea, in cazul de fata va fi http://localhost:3000. 
  
-Vom crea un request de tip POST pentru a ne autoriza aplicatia si a ne conecta la Spotify API. Ca si raspuns vom primi un acces_token si un refresh_token ce ne permit accesul la API.
+Vom crea un request de tip POST pentru a ne autoriza aplicatia si a ne conecta la Spotify API. Ca si raspuns vom primi un acces_token, un refresh_token si un expires_in ce ne permit accesul la API. Token-ul primit are un timp de valabilitate, motiv pentru care primim ca si raspuns un refresh_token pentru a putea reface conexiunea si expires_in pentru a sti in cat timp expira.
 ```
 useEffect(() => {
     (async () => {
@@ -68,7 +68,29 @@ spotifyLoginRouter.post('/', async (req, res) => {
     }
   });
   ```
+  Este de asemenea nevoie de un request de tip POST pentru a trata cazul expirarii token-ului de acces primit anterior. Astfel, se va prelua refresh token din body si folosi tot un obiect de tip SpotifyWebApi creat pe baza redirect URI, a client_id, client_secret si a token-ului de refresh pentru a se primi un nou token de acces. Ca si raspuns vor fi trimise noul token de acces creat si timpul in care expira acesta.
   
+  ```
+  spotifyRefreshTokenRouter.post('/', async (req, res) => {
+    const { refreshToken } = req.body;
+    const spotifyApi = new SpotifyWebApi({
+      redirectUri: process.env.REDIRECT_URI,
+      clientId: process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET,
+      refreshToken,
+    });
+  
+    try {
+      const {
+        body: { access_token, expires_in },
+      } = await spotifyApi.refreshAccessToken();
+      res.json({ access_token, expires_in });
+    } catch (err) {
+      console.log(err);
+      res.sendStatus(400);
+    }
+  });
+  ```
 ## Capturi ecran aplicație
 Aplicatia contine 3 pagini: pagina de start, pagina de cautare a unei melodii si pagina de afisare a versurilor melodiei selectate. Aceasta porneste cu pagina de start, unde avem optiunea de a ne conecta la Spotify.
 ![Pagina start](pagina_start.png)
