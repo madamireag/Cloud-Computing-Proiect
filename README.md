@@ -5,13 +5,14 @@
 ## Introducere
 Conform unui articol al National Institute of Standards and Technology, Cloud Computing este un concept modern bazat pe virtualizare care furnizează servicii IaaS (Infrastructure as a Service), PaaS (Platform as a Service), SaaS (Software as a Service) prin Internet. Principalul său rol este de a permite accesul la rețeaua de comunicații omniprezente, convenabile și la cerere, la resurse de calcul configurabile (de exemplu: rețele, servere, stocare date, aplicații și servicii). Acestea pot fi rapid furnizate și lansate cu efort minim de management sau interacțiune cu furnizorii de servicii.
 ## Descriere problemă
-Problema propusa spre rezolvare este cautarea unei melodii disponibila pe Spotify si afisarea versurilor acesteia. Pentru rezolvarea acestei probleme am utilizat Spotify API pentru autorizarea aplicatiei si cautarea unei melodii disponibila pe Spotify si lyrics.ovh pentru cautarea versurilor melodiei respective si afisarea acestora pe ecran.
+Problema propusa spre rezolvare este cautarea unei melodii care este disponibila pe Spotify pe baza titlului si/sau artistului, precum si afisarea versurilor aferente acesteia. 
+Pentru rezolvarea acestei probleme am utilizat Spotify API pentru autorizarea aplicatiei si cautarea unei melodii disponibila pe Spotify si lyrics.ovh pentru cautarea versurilor melodiei respective si afisarea acestora pe ecran.
 
 ## Descriere API
 Un API (Application Programming Interface) este utilizat pentru a trimite date intre aplicatiile software. Un API REST utilizeaza request-uri HTTP pentru a gestiona datele, precum GET, PUT, POST, DELETE.
 
 #### Lyrics.ovh API
-Fiind un API al carui scop este aducerea de versuri pentru o anumita melodie si un anumit artist, lyrics.ovh poate fi utilizat creand un request de tip GET ce are ca parametri numele artistului si titlul melodiei. URL-ul prin care se poate realiza un request catre API este https://api.lyrics.ovh/v1/artist/title, unde artist si title sunt trimisi ca parametri. Utilizand biblioteca Axios am realizat un request catre API si a aduce versurile melodiei cautate anterior.
+Fiind un API public si gratuit, al carui scop este aducerea de versuri pentru o anumita melodie si un anumit artist, lyrics.ovh poate fi utilizat creand un request de tip GET ce are ca parametri numele artistului si titlul melodiei. Usurinta si rapiditatea utilizarii sunt principalele motive ce m-au determinat sa aleg sa folosesc acest API, intrucat este nevoie doar de un request de tip GET la URL-ul specificat pentru a prelua versurile pentru melodia si artistul specificat.
 
 ```
  (async () => {
@@ -49,7 +50,7 @@ useEffect(() => {
 
 ## Flux de date
 Fluxul de date intre backend si frontend se realizeaza cu ajutorul mecanismului request-response. Pentru codul de mai sus de conectare la API de pe frontend se utilizeaza biblioteca axios pentru a face legatura cu request-ul de pe backend.
-Utilizand un obiect de tip SpotifyWebApi din pachetul spotify-web-api-node vom prelua codul de autorizare din body si vom astepta sa ni se aprobe accesul la API. Ca raspuns vom primi un acces_token si un request_token necesare pentru avea acces la API, dar si expires_in ce reprezinta in cat timp expira acces_token primit anterior. Toate acestea sunt trimise ca si raspuns.
+Utilizand un obiect de tip SpotifyWebApi din pachetul spotify-web-api-node vom prelua codul de autorizare din body si vom astepta sa ni se aprobe accesul la API. Ca raspuns vom primi un acces_token si un request_token necesare pentru avea acces la API, dar si expires_in ce reprezinta in cat timp expira acces_token primit anterior. Toate acestea sunt trimise mai departe ca si raspuns si vor fi preluate ulterior pe partea de frontend.
 ```
 
 spotifyLoginRouter.post('/', async (req, res) => {
