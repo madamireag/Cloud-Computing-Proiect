@@ -132,6 +132,7 @@ Urmatoarea pagina ne ofera optiunea de a cauta melodii utilizand Spotify API, pe
 Atunci cand selectam o melodie vom fi redirectionati catre pagina de afisare a versurilor pentru melodia respectiva. Asteptam sa se realizeze request-ul catre Lyrics.ovh API, iar versurile vor fi afisate de indata ce se primeste un raspuns.
 ![Pagina Afisare versuri melodie](pagina_afisare_versuri.png)
 ## Referințe
+* [Articol NIST](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf)
 * [Lyrics.ovh API](https://github.com/public-apis/public-apis)
 * [Lyrics.ovh API Website](https://lyricsovh.docs.apiary.io/#)
 * [Spotify API](https://developer.spotify.com/documentation/web-api/quick-start/)
