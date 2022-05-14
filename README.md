@@ -71,7 +71,7 @@ spotifyLoginRouter.post('/', async (req, res) => {
   
 ## Capturi ecran aplicație
 Aplicatia porneste cu pagina de start, unde avem optiunea de a ne conecta la Spotify.
-![Pagina start]()
+![Pagina start](pagina_start.png)
 ## Referințe
 * [Lyrics.ovh API](https://github.com/public-apis/public-apis)
 * [Lyrics.ovh API Website](https://lyricsovh.docs.apiary.io/#)
