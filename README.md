@@ -70,7 +70,7 @@ spotifyLoginRouter.post('/', async (req, res) => {
   ```
   
 ## Capturi ecran aplicație
-Aplicatia porneste cu pagina de start, unde avem optiunea de a ne conecta la Spotify.
+Aplicatia contine 3 pagini: pagina de start, pagina de cautare a unei melodii si pagina de afisare a versurilor melodiei selectate. Aceasta porneste cu pagina de start, unde avem optiunea de a ne conecta la Spotify.
 ![Pagina start](pagina_start.png)
 
 Urmatoarea pagina ne ofera optiunea de a cauta melodii utilizand Spotify API, pe baza de artist si/sau titlul melodiei. In input-ul de tip search putem introduce un anumit keyword reprezentand numele artistului sau al melodiei si vor fi afisate rezultatele gasite pe Spotify, impreuna cu imaginea disponibila.
