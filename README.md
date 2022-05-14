@@ -76,6 +76,7 @@ Aplicatia porneste cu pagina de start, unde avem optiunea de a ne conecta la Spo
 Urmatoarea pagina ne ofera optiunea de a cauta melodii utilizand Spotify API, pe baza de artist si/sau titlul melodiei. In input-ul de tip search putem introduce un anumit keyword reprezentand numele artistului sau al melodiei si vor fi afisate rezultatele gasite pe Spotify, impreuna cu imaginea disponibila.
 
 ![Pagina Cautare melodie](pagina cautare melodie.png)
+
 ## Referințe
 * [Lyrics.ovh API](https://github.com/public-apis/public-apis)
 * [Lyrics.ovh API Website](https://lyricsovh.docs.apiary.io/#)
