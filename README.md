@@ -1,6 +1,9 @@
 # Documentație Aplicație
-## Introducere
 
+### [Link Video](https://youtu.be/K4l1gN1tMJ0)
+
+## Introducere
+Conform unui articol al National Institute of Standards and Technology, Cloud Computing este un concept modern bazat pe virtualizare care furnizează servicii IaaS (Infrastructure as a Service), PaaS (Platform as a Service), SaaS (Software as a Service) prin Internet. Principalul său rol este de a permite accesul la rețeaua de comunicații omniprezente, convenabile și la cerere, la resurse de calcul configurabile (de exemplu: rețele, servere, stocare date, aplicații și servicii). Acestea pot fi rapid furnizate și lansate cu efort minim de management sau interacțiune cu furnizorii de servicii.
 ## Descriere problemă
 Problema propusa spre rezolvare este cautarea unei melodii disponibila pe Spotify si afisarea versurilor acesteia. Pentru rezolvarea acestei probleme am utilizat Spotify API pentru autorizarea aplicatiei si cautarea unei melodii disponibila pe Spotify si lyrics.ovh pentru cautarea versurilor melodiei respective si afisarea acestora pe ecran.
 
@@ -19,6 +22,8 @@ Fiind un API al carui scop este aducerea de versuri pentru o anumita melodie si 
     })();
  ```
  #### Spotify API
+Spotify API este un API gratuit pus la dispozitie de catre Spotify, ce poate fi accesat atat de aplicatii de tip web, cat si de aplicatii mobile. Printre functionalitatile premise de acesta se numara cautarea de melodii, artisti, preluarea de melodii si datele acestora, preluarea unui artist, a albumelor unui artist, preluarea melodiilor salvate de utilizator, preluarea de playlist-uri ale unui utilizator disponibile pe Spotify si multe altele.
+
 Am utilizat Spotify API pentru a cauta melodii pe baza artistului si/sau titlului. Acesta ofera acces la datele utilizatorului, dar si la datele disponibile legate de melodiile si artistii aflati pe Spotify. Pentru a ne putea conecta aplicatia la API este nevoie sa ne inregistram pe https://developer.spotify.com/dashboard/login si sa cream o aplicatie pentru a primi un client_id si un client_secret ce vor fi folosite ulterior pentru a ne conecta la API. Tot aici este necesar sa furnizam aplicatiei un redirect_uri pentru ca API-ul sa stie unde sa ne redirecteze dupa ce realizeaza autorizarea, in cazul de fata va fi http://localhost:3000. 
  
 Vom crea un request de tip POST pentru a ne autoriza aplicatia si a ne conecta la Spotify API. Ca si raspuns vom primi un acces_token, un refresh_token si un expires_in ce ne permit accesul la API. Token-ul primit are un timp de valabilitate, motiv pentru care primim ca si raspuns un refresh_token pentru a putea reface conexiunea si expires_in pentru a sti in cat timp expira.
